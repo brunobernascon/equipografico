@@ -1,14 +1,10 @@
-
-
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Equipo Gráfico</title>
-  <link rel="shortcut icon" type="image/x-icon" href="favicomlogo.ico"/>
+  <link rel="shortcut icon" type="image/x-icon" href="tr.ico"/>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -48,13 +44,13 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="ini.php" class="logo">
+    <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><img src="logocabeceramovil1.png"></span>
+      <span class="logo-mini"><img src="logocabeceramovil.jpg"></span>
 
       <!-- logo for regular state and mobile devices -->
 
-      <span class="logo-lg"><img src="logocabecera1.png">&#160;&#160;<b>E</b>quipo<b>G</b>áfico</span>
+      <span class="logo-lg"><img src="logocabecera.jpg">&#160;&#160;<b>E</b>quipo<b>G</b>áfico</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -335,9 +331,9 @@
         <li class="active">Dashboard</li>
       </ol>
     </section>
-
+<section class="content-header">
     <!-- Main content -->
-    <!--<section class="content">
+  <!--  <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-3 col-xs-6">
@@ -836,7 +832,7 @@
         </section>
         <!-- right col -->
       </div>
-      <!-- /.row (main row) --> -->
+      <!-- /.row (main row) -->
 
     </section>
     <!-- /.content -->
