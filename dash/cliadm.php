@@ -447,15 +447,18 @@
                                 </div>
 
                                 <div class="col-xs-13">
+
+
+
+
+
+
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Clientes</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <div class="records_content"></div>
-              
-                            </div>
+<div class="records_content"></div>
                             </div>
 
 

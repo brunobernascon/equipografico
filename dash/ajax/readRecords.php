@@ -1,6 +1,6 @@
 <?php
 	// include Database connection file 
-	include("db_connection.php");
+	include("connection.php");
 
 	// Design initial table header 
 	$data = '<table class="table table-bordered table-striped">
@@ -14,7 +14,7 @@
 						</tr>';
 
 																		
-	$query = "SELECT * FROM users";
+	$query = "SELECT * FROM clientes";
 
 	if (!$result = mysqli_query($db, $query)) {
         exit(mysqli_error());
