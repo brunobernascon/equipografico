@@ -20,7 +20,7 @@ if(!empty($_POST)){
   $_SESSION['password']= $password;
 
 
-  if(!$captcha){
+  if(!$captcha){ 
       $errorempty="verifica el captcha";
     }
 
@@ -53,7 +53,7 @@ if(!empty($_POST)){
                         $_SESSION['nombre']=$recoger_dato['nombre'];
                         $_SESSION['perfil']=$recoger_dato ['perfil'];
                         $_SESSION['cli']=$recoger_dato ['cli'];    
-                        header ('location: dash/cliadm.php');
+                        header ('location: dash/ini.php');
                         }
                      else{
                           $error="Las credenciales ingresadas son incorrectas";
