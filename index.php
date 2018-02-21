@@ -11,7 +11,7 @@ $captcha="";
 
 if(!empty($_POST)){
   $captcha=$_POST['g-recaptcha-response'];
- $secret='6Lf2VUcUAAAAADj9O7dyKzu5tR52qDJFcOgiMCGk'; // SECRET LOCALHOST
+  $secret='6LdsSEcUAAAAAH1LN8HoPBvL6_HpZ-WRHF8VOh6e'; // SECRET LOCALHOST
  // $secret='6Le9VDYUAAAAAARJZ0ZGxaW2qqlWp_8DVqwSzijf';
   $usuario=$_POST['usuario'];
   $password=$_POST['password'];
@@ -24,28 +24,25 @@ if(!empty($_POST)){
       $errorempty="verifica el captcha";
     }
 
-   $response= file_get_contents(
-     "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
+        $response= file_get_contents(
+        "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
+        $arr=json_decode($response,TRUE);
 
-    $arr=json_decode($response,TRUE);
-if($arr['success']){
+        if($arr['success']){
+;
+                            if($usuario == "" or $password==""){
+                                $error="No has ingresado credenciales";
+                                }
+                            
+                            else{
+                                include('connection.php');
+                                $password=mysqli_real_escape_string($conexion,$_POST['password']);
+                                $comprobacion_del_nombre='select * from registros where nombre="'.trim($_POST['usuario']).'"';
+                                 $comprobacion=$conexion->query($comprobacion_del_nombre);
+                                // $dato=mysqli_fetch_assoc($comprobacion);
+                                //var_dump($comprobacion);
+			                    //	die;
 
-  		
-    if($usuario == "" or $password=="")
-      {
-
-        $error="No has ingresado credenciales";
-      }
-
-
-  else{
-      include('connection.php');
-             $password=mysqli_real_escape_string($conexion,$_POST['password']);
-             $comprobacion_del_nombre='select * from registros where nombre="'.trim($_POST['usuario']).'"';
-             $comprobacion=$conexion->query($comprobacion_del_nombre);
-            // $dato=mysqli_fetch_assoc($comprobacion);
-             //var_dump($comprobacion);
-			//	die;
 
             if($comprobacion->num_rows>0){
                  $recoger_dato=mysqli_fetch_assoc($comprobacion);
@@ -56,7 +53,7 @@ if($arr['success']){
                         $_SESSION['nombre']=$recoger_dato['nombre'];
                         $_SESSION['perfil']=$recoger_dato ['perfil'];
                         $_SESSION['cli']=$recoger_dato ['cli'];    
-                        header ('location: dash/pages/ini.php');
+                        header ('location: dash/cliadm.php');
                         }
                      else{
                           $error="Las credenciales ingresadas son incorrectas";
@@ -85,6 +82,7 @@ if($arr['success']){
       
 
 ?>  
+
 
 
 
@@ -324,7 +322,7 @@ if($arr['success']){
                                     <input class="form-control" placeholder="Contraseña" name="password" id="password" type="password" value="<?php echo $password;?>">
                                 <br>
                               <!--  <div class="g-recaptcha" data-sitekey="6Le9VDYUAAAAAOwIUxllV-KjP8NrvKh_bn3-PAwl"></div>-->
-                               <div class="g-recaptcha" data-sitekey="6Lf2VUcUAAAAAGF2ul26SikhZNnvNe8v0Eql5u01"></div>
+                                <div class="g-recaptcha" data-sitekey="6LdsSEcUAAAAAAqaI6THSJN5QEIaE-9NAgvc9I0Z"></div>
                                 <br>
                                     <label>
                                         <a href="recuperarcontra.php">Olvide mi contrase&#241;a</strong></a><br>
