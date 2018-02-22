@@ -1,20 +1,23 @@
 <?php
 	// include Database connection file 
-	include("connection.php");
+	include("db_connection.php");
 
 	// Design initial table header 
 	$data = '<table class="table table-bordered table-striped">
 						<tr>
-							<th>sdfdsf</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Email Address</th>
-							<th>Update</th>
-							<th>Delete</th>
+							<th>id</th>
+							<th>razon</th>
+							<th>apellido</th>
+							<th>direccion</th>
+							<th>telefono</th>
+							<th>email</th>
+							<th>cuit</th>
+							<th>Editar</th>
+							<th>Borrar</th>
 						</tr>';
 
 																		
-	$query = "SELECT * FROM clientes";
+	$query = "SELECT * FROM cli";
 
 	if (!$result = mysqli_query($db, $query)) {
         exit(mysqli_error());
@@ -27,15 +30,18 @@
     	while($row = mysqli_fetch_assoc($result))
     	{
     		$data .= '<tr>
-				<td>'.$number.'</td>
-				<td>'.$row['first_name'].'</td>
-				<td>'.$row['last_name'].'</td>
+				<td>'.$row['id'].'</td>
+				<td>'.$row['razon'].'</td>
+				<td>'.$row['apellido'].'</td>
+				<td>'.$row['direccion'].'</td>
+				<td>'.$row['telefono'].'</td>
 				<td>'.$row['email'].'</td>
+				<td>'.$row['cuit'].'</td>
 				<td>
-					<button onclick="GetUserDetails('.$row['id'].')" class="btn btn-warning">Update</button>
+					<button onclick="GetUserDetails('.$row['id'].')" class="btn btn-warning">Editar</button>
 				</td>
 				<td>
-					<button onclick="DeleteUser('.$row['id'].')" class="btn btn-danger">Delete</button>
+					<button onclick="DeleteUser('.$row['id'].')" class="btn btn-danger">Borrar</button>
 				</td>
     		</tr>';
     		$number++;
